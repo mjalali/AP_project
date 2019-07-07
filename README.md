@@ -5,3 +5,15 @@ it is a Qt project
 
 Use the link (https://github.com/mjalali/AP_project) to install Ap_project.
 
+##classes:
+
+```bash
+Date_Time
+User
+Manager_Normal_user
+Image
+Building
+File
+Rent
+Sale
+```
