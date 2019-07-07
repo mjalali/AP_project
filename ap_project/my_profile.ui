@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>my_profile</class>
+ <widget class="QDialog" name="my_profile">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>925</width>
+    <height>471</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>901</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="list">
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_user">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>891</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>User</string>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>40</y>
+        <width>871</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_user">
+           <item>
+            <widget class="QLabel" name="label_user">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 0)</string>
+             </property>
+             <property name="text">
+              <string>Username:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_user">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_user_2">
+           <item>
+            <widget class="QLabel" name="label_pass">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 0)</string>
+             </property>
+             <property name="text">
+              <string>password:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_user_">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_user_3">
+           <item>
+            <widget class="QLabel" name="label_first_name">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 0)</string>
+             </property>
+             <property name="text">
+              <string>first_name:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_first_name">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_user_4">
+           <item>
+            <widget class="QLabel" name="label_first_name_2">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 0)</string>
+             </property>
+             <property name="text">
+              <string>last_name:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_first_name_2">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>22</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_user_5">
+           <item>
+            <widget class="QLabel" name="label_first_name_3">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>true</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 0)</string>
+             </property>
+             <property name="text">
+              <string>Birth_day:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="dateEdit">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>22</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color:rgb(246, 119, 255);</string>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy/MM/dd</string>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+             <property name="date">
+              <date>
+               <year>1999</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>what are you?:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_kind">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="currentIndex">
+              <number>-1</number>
+             </property>
+             <property name="modelColumn">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="text">
+              <string>profile</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>357</y>
+       <width>431</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 255);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
+     <property name="text">
+      <string>edit</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Page</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Page</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Tab 2</string>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="move">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>20</y>
+     <width>161</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TIME">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>0</y>
+     <width>291</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 4);</string>
+   </property>
+   <property name="text">
+    <string>te</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="DATE">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>0</y>
+     <width>181</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 59, 255);</string>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
