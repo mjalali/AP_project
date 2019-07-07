@@ -77,14 +77,21 @@ public slots:
 //        Image* g=new Image("C:/Users/Ali/Desktop/download.jfif");
 //        User* d=new User("ali","khabazian",f,true,"u","s",true,g);
 //        list_user.push_back(d);
-        connect(this,SIGNAL(send_reg(QVector<User*>*)),register1,SLOT(get_list(QVector<User*>*)));
+        connect(this,SIGNAL(send_reg(QVector<User*>&)),register1,SLOT(get_list(QVector<User*>&)));
+        connect(this,SIGNAL(send_dialog(QDialog*)),register1,SLOT(get_dialog(QDialog*)));
+
+        emit send_reg(list_user);
+        emit send_dialog(this);
+        qDebug()<<this;
         register1->exec();
-        emit send_reg(&list_user);
 
     }
     void okay(){
+        qDebug()<<"haha";
         QVector<User*>::iterator d=list_user.begin();
-        qDebug()<<(*d)->get_username();
+        qDebug()<<"haha2";
+        qDebug()<<list_user.size();
+        qDebug()<<"haha3";
         while(d!=list_user.end()){
             qDebug()<<"while";
             if((*d)->get_username()==Us->text()&&(*d)->get_password()==pa->text()){
@@ -98,9 +105,14 @@ public slots:
         }
 
     }
+    void get_back(QVector<User*> t){
+        qDebug()<<"salam3";
+        list_user=t;
+    }
 signals:
     void per();
-    void send_reg(QVector<User*>*);
+    void send_reg(QVector<User*>&);
+    void send_dialog(QDialog*);
 private:
     Ui::Dialog *ui;
 };

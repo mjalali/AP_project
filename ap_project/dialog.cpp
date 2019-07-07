@@ -5,7 +5,7 @@ Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
 {
-    list_user.resize(10);
+//    list_user.resize(10);
     center=new QHBoxLayout();
     tu=new QVBoxLayout();
     namekarbari=new QLabel("Username:");

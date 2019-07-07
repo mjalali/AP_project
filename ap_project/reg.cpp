@@ -29,6 +29,7 @@ reg::~reg()
 
 void reg::on_pushButton_clicked()
 {
+//qDebug()<<f;
     if(ui->comboBox_kind->currentIndex()==0){
         if(ui->lineEdit_user->text()!=""&&ui->lineEdit_pass->text()!=""&&ui->lineEdit_first_name->text()!=""&&ui->lineEdit_last_name->text()!=""){
             qDebug()<<"salam";
@@ -41,10 +42,11 @@ void reg::on_pushButton_clicked()
 //            list_in_reg->insert(1,s);
             qDebug()<<"salam";
 
-            list_in_reg->push_back(s);
+            list_in_reg.push_back(s);
             qDebug()<<"salam2";
-//            list_in_reg->reserve(10);
-
+            connect(this,SIGNAL(send_back(QVector<User*>)),f,SLOT(get_back(QVector<User*>)));
+            qDebug()<<"g";
+            emit send_back(list_in_reg);
             close();
         }
     }
@@ -60,6 +62,7 @@ void reg::on_pushButton_clicked()
 void reg::on_comboBox_kind_currentIndexChanged(int index)
 {
     if(index==1){
+
          ui->goooo->setVisible(true);
          ui->goooo_2->setVisible(true);
 
