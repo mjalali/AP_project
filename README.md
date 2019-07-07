@@ -4,7 +4,7 @@ it is a Qt project
 ## Installation
 
 Use the link (https://github.com/mjalali/AP_project) to install Ap_project.
-## classes
+## Classes
 
 ```bash
 Date_Time
@@ -15,4 +15,10 @@ Building
 File
 Rent
 Sale
+```
+
+## Bugs
+
+```bash
+All Bugs fixed
 ```
