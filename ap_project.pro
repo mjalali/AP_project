@@ -35,7 +35,10 @@ SOURCES += \
     date_time.cpp \
     manager_normal_user.cpp \
     file.cpp \
-    building.cpp
+    building.cpp \
+    house.cpp \
+    show_aparteman.cpp \
+    show_house.cpp
 
 HEADERS += \
         dialog.h \
@@ -47,13 +50,19 @@ HEADERS += \
     date_time.h \
     manager_normal_user.h \
     file.h \
-    building.h
+    building.h \
+    house.h \
+    show_aparteman.h \
+    show_house.h
 
 FORMS += \
         dialog.ui \
     reg.ui \
     pop.ui \
-    my_profile.ui
+    my_profile.ui \
+    house.ui \
+    show_aparteman.ui \
+    show_house.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

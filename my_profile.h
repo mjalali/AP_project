@@ -35,6 +35,9 @@ class my_profile : public QDialog
 
     QString picture;
 
+    QVector<Building*>* list_bulding;
+    QVector<House*> list_house;
+
 public:
     explicit my_profile(QWidget *parent = nullptr);
     ~my_profile();
@@ -89,12 +92,20 @@ public slots:
 
     signals:
     void fill();
+    void set_pop(QString);
+    void send_house(QVector<House*>&);
 private slots:
     void on_pushButton_2_clicked();
     void on_pushButton_4_clicked();
     void on_building_mode_currentIndexChanged(int index);
     void on_add_picture_clicked();
     void on_Insert_clicked();
+    void get_list(QVector<Building*>& tmp){
+        list_bulding=&tmp;
+    }
+    void on_tabWidget_currentChanged(int index);
+    void on_add_house_pb_clicked();
+    void on_pushButton_clicked();
 };
 
 #endif // MY_PROFILE_H

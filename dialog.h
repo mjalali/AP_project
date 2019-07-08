@@ -26,6 +26,7 @@
 #include<my_profile.h>
 
 #include"user.h"
+#include"building.h"
 #include<QVector>
 
 namespace Ui {
@@ -58,6 +59,7 @@ class Dialog : public QDialog
 
 
     QVector<User*> list_user;
+    QVector<Building*> list_Building;
     Q_OBJECT
 
 public:
@@ -99,6 +101,8 @@ public slots:
                 class my_profile* o=new my_profile;
                 connect(this,SIGNAL(send_user(User*)),o,SLOT(get_user(User*)));
                 emit send_user(*d);
+                connect(this,SIGNAL(send_building(QVector<Building*>&)),o,SLOT(get_list(QVector<Building*>&)));
+                emit send_building(list_Building);
 
 
 
@@ -121,6 +125,7 @@ signals:
     void send_reg(QVector<User*>&);
 //    void send_dialog(QDialog*);
     void send_user(User*);
+    void send_building(QVector<Building*>&);
 private:
     Ui::Dialog *ui;
 };

@@ -21,7 +21,7 @@ protected:
 public:
     File(B_kind _Building_kind, Building * _my_building);
     virtual void count_final_cost() = 0;
-    float Final_cost();
+    virtual float Final_cost();
     B_kind Building_kind();
     virtual~File();
 
@@ -33,10 +33,9 @@ protected:
     Date* period;
 public:
     Rent(B_kind _Building_kind, Building * _my_building, Date* _period);
-//	float Mortgage_cost();
-//	float Rent_cost();
-    float Mortgage_cost() ;
-    float Rent_cost() ;
+    float Mortgage_cost();
+    float Rent_cost();
+    float Final_cost();
 };
 class Sale:public File {
 protected:
@@ -44,6 +43,7 @@ protected:
 public:
     Sale(B_kind _Building_kind, Building * _my_building, QString _detail);
     QString Detail();
+    float Final_cost();
 };
 
 

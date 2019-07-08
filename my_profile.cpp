@@ -4,6 +4,11 @@
 #include<QtMultimedia/QAudio>
 #include<QTimer>
 #include<QLabel>
+#include<QVector>
+#include<building.h>
+#include"pop.h"
+#include"house.h"
+#include<windows.h>
 
 #include<QFileDialog>
 
@@ -102,5 +107,107 @@ void my_profile::on_add_picture_clicked()
 
 void my_profile::on_Insert_clicked()
 {
+    if(ui->base_price_le->text()!="" && ui->hole_area_le->text()!="" && ui->address_le->text()!=""){
+    if((ui->built_area_notrh->text()!="" && ui->rooms_north->text()!="" && ui->front_area_north->text()!="" && ui->back_area_north->text()!=""&&ui->building_mode->currentIndex()==0)){
+        Image* g=new Image(picture);
+//        Northern_villa* sss=new Northern_villa(1,1,"1",g,1,1,1,1);
+                Northern_villa* ss=new  Northern_villa(ui->base_price_le->text().toFloat(),ui->hole_area_le->text().toFloat(),ui->address_le->text(),g,ui->built_area_notrh->text().toFloat(),ui->rooms_north->text().toInt(),ui->front_area_north->text().toFloat(),ui->back_area_north->text().toFloat());
+                pop* w=new pop();
+                connect(this,SIGNAL(set_pop(QString)),w,SLOT(get_string(QString)));
+                emit set_pop("New Northern villa added");
+                qDebug()<<list_bulding->size();
+                qDebug()<<"d";
+                list_bulding->push_back(ss);
 
+                w->exec();
+    }
+    if(ui->built_area_south->text()!="" && ui->rooms_south->text()!="" && ui->yard_area_south->text()!="" && ui->parking_area_south->text()!=""&&ui->building_mode->currentIndex()==1){
+        Image* gg=new Image(picture);
+            Southern_villa* dd=new Southern_villa(ui->base_price_le->text().toFloat(),ui->hole_area_le->text().toFloat(),ui->address_le->text(),gg,ui->built_area_south->text().toFloat(),ui->rooms_south->text().toInt(),ui->yard_area_south->text().toFloat(),ui->parking_area_south->text().toFloat());
+            pop* ww=new pop();
+            connect(this,SIGNAL(set_pop(QString)),ww,SLOT(get_string(QString)));
+            emit set_pop("New Southern villa added");
+            qDebug()<<list_bulding->size();
+            qDebug()<<"d";
+            list_bulding->push_back(dd);
+
+            ww->exec();
+    }
+    if(ui->floors_ap->text()!="")
+    {
+          Image* ggg=new Image(picture);
+
+          class::Apartment* re=new class::Apartment(ui->base_price_le->text().toFloat(),ui->hole_area_le->text().toFloat(),ui->address_le->text(),ggg,ui->have_elevator->isTristate(),ui->floors_ap->text().toInt(),list_house);
+
+          pop* ww=new pop();
+          connect(this,SIGNAL(set_pop(QString)),ww,SLOT(get_string(QString)));
+          emit set_pop("New Apartment added");
+          qDebug()<<list_bulding->size();
+          qDebug()<<"d";
+          list_bulding->push_back(re);
+
+          ww->exec();
+
+    }
+    }
+}
+
+void my_profile::on_tabWidget_currentChanged(int index)
+{
+    if(index==2){
+        ui->list_buildig->clear();
+        int i=0;
+//        ui->list_buildig->append("Number    kind        Adress  Price");
+
+
+        QVector<Building*>::iterator j=list_bulding->begin();
+//        qDebug()<<(*j)->Address();
+        while(j!=list_bulding->end()){
+            i++;
+            QString d=QString::number(i);
+            d+="\t";
+            {
+                Northern_villa* to=dynamic_cast<Northern_villa*>(*j);
+                if(to){
+                    d+="Northen villa";
+                }
+                else{
+                    Southern_villa* yo=dynamic_cast<Southern_villa*>(*j);
+                    if(yo){
+                        d+="Southern villa";
+                    }
+                    else{
+                        d+="apartment";
+                    }
+                }
+            }
+            d+="\t\t";
+            d+=(*j)->Address();
+            d+="\t";
+            d+=QString::number(static_cast<double>((*j)->Price()));
+            ui->list_buildig->append(d);
+
+            j++;
+        }
+
+
+    }
+}
+
+void my_profile::on_add_house_pb_clicked()
+{
+    house * hh=new house;
+
+    connect(this,SIGNAL(send_house(QVector<House*>&)),hh,SLOT(get_house(QVector<House*>&)));
+    emit send_house(list_house);
+//    Sleep(10000);
+    hh->exec();
+
+}
+
+void my_profile::on_pushButton_clicked()
+{
+    if(ui->spinBox->text().toInt()<=list_bulding->size()){
+
+    }
 }

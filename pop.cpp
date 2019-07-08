@@ -6,6 +6,7 @@ pop::pop(QWidget *parent) :
     ui(new Ui::pop)
 {
     ui->setupUi(this);
+    what=ui->label;
 }
 
 pop::~pop()
