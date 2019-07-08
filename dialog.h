@@ -78,10 +78,10 @@ public slots:
 //        User* d=new User("ali","khabazian",f,true,"u","s",true,g);
 //        list_user.push_back(d);
         connect(this,SIGNAL(send_reg(QVector<User*>&)),register1,SLOT(get_list(QVector<User*>&)));
-        connect(this,SIGNAL(send_dialog(QDialog*)),register1,SLOT(get_dialog(QDialog*)));
+//        connect(this,SIGNAL(send_dialog(QDialog*)),register1,SLOT(get_dialog(QDialog*)));
 
         emit send_reg(list_user);
-        emit send_dialog(this);
+//        emit send_dialog(this);
         qDebug()<<this;
         register1->exec();
 
@@ -96,8 +96,15 @@ public slots:
             qDebug()<<"while";
             if((*d)->get_username()==Us->text()&&(*d)->get_password()==pa->text()){
                 qDebug()<<"if";
-                class my_profile o;
-                o.exec();
+                class my_profile* o=new my_profile;
+                connect(this,SIGNAL(send_user(User*)),o,SLOT(get_user(User*)));
+                emit send_user(*d);
+
+
+
+
+
+                o->exec();
                 close();
 
             }
@@ -112,7 +119,8 @@ public slots:
 signals:
     void per();
     void send_reg(QVector<User*>&);
-    void send_dialog(QDialog*);
+//    void send_dialog(QDialog*);
+    void send_user(User*);
 private:
     Ui::Dialog *ui;
 };

@@ -27,6 +27,16 @@ User::User(QString _firstname, QString _lastname, Date* _birthday, bool _active,
     online=_online;
     profile=_profile;
 }
+void User::edit_user(QString _firstname, QString _lastname, Date* _birthday, bool _active, QString _username, QString _password, bool _online, Image* _profile){
+    firstname=_firstname;
+    lastname=_lastname;
+    birthday=_birthday;
+    active=_active;
+    username=_username;
+    password=_password;
+    online=_online;
+    profile=_profile;
+}
 void User::set_username(QString s) {
     username = s;
 }

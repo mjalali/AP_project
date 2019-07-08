@@ -42,15 +42,36 @@ void reg::on_pushButton_clicked()
 //            list_in_reg->insert(1,s);
             qDebug()<<"salam";
 
-            list_in_reg.push_back(s);
+            list_in_reg->push_back(s);
             qDebug()<<"salam2";
-            connect(this,SIGNAL(send_back(QVector<User*>)),f,SLOT(get_back(QVector<User*>)));
+//            connect(this,SIGNAL(send_back(QVector<User*>)),f,SLOT(get_back(QVector<User*>)));
             qDebug()<<"g";
-            emit send_back(list_in_reg);
+//            emit send_back(list_in_reg);
             close();
         }
+        ui->error->setText("all filds not ");
+
     }
     else if(ui->comboBox_kind->currentIndex()==1&&ui->goooo_2->text()=="ali1234"){
+        if(ui->lineEdit_user->text()!=""&&ui->lineEdit_pass->text()!=""&&ui->lineEdit_first_name->text()!=""&&ui->lineEdit_last_name->text()!=""){
+//            qDebug()<<"salam";
+            Date* d=new Date(ui->dateEdit->date().day(),ui->dateEdit->date().month(),ui->dateEdit->date().year());
+            Image* u=new Image(fileName);
+               QVector<File*> *c=new QVector<File*>;
+               QVector<Building*> *cd=new QVector<Building*>;
+//               c->reserve(10);
+               qDebug()<<"salam";
+               Manager* s=new Manager(ui->lineEdit_user->text(),ui->lineEdit_pass->text(),d,true,ui->lineEdit_user->text(),ui->lineEdit_pass->text(),true,u,*cd,*c);
+//            list_in_reg->insert(1,s);
+            qDebug()<<"salam";
+
+            list_in_reg->push_back(s);
+            qDebug()<<"salam2";
+//            connect(this,SIGNAL(send_back(QVector<User*>)),f,SLOT(get_back(QVector<User*>)));
+            qDebug()<<"g";
+//            emit send_back(list_in_reg);
+            close();
+        }
 
     }
     else{

@@ -15,9 +15,9 @@ class reg;
 class reg : public QDialog
 {
     Q_OBJECT
-    QVector<User*> list_in_reg;
+    QVector<User*>* list_in_reg;
     QString fileName;
-    QDialog* f;
+//    QDialog* f;
 
 
 
@@ -35,13 +35,13 @@ private slots:
 
     void on_pushButton_4_clicked();
     void get_list(QVector<User*>& tmp){
-        list_in_reg=tmp;
+        list_in_reg=&tmp;
     }
-    void get_dialog(QDialog* tmp){
-        f=tmp;
-    }
+//    void get_dialog(QDialog* tmp){
+//        f=tmp;
+//    }
 signals:
-    void send_back(QVector<User*>);
+//    void send_back(QVector<User*>);
 
 private:
     Ui::reg *ui;

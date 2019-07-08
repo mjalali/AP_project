@@ -24,6 +24,7 @@ public:
     User();
     User( const User &obj);
     User(QString _firstname, QString _lastname, Date* _birthday, bool _active, QString _username, QString _password, bool _online, Image* _profile);
+    void edit_user(QString _firstname, QString _lastname, Date* _birthday, bool _active, QString _username, QString _password, bool _online, Image* _profile);
     void set_username(QString s);
     void set_pass(QString p);
     void set_online(bool x);
