@@ -38,7 +38,9 @@ SOURCES += \
     building.cpp \
     house.cpp \
     show_aparteman.cpp \
-    show_house.cpp
+    show_house.cpp \
+    search.cpp \
+    rent.cpp
 
 HEADERS += \
         dialog.h \
@@ -53,7 +55,9 @@ HEADERS += \
     building.h \
     house.h \
     show_aparteman.h \
-    show_house.h
+    show_house.h \
+    search.h \
+    rent.h
 
 FORMS += \
         dialog.ui \
@@ -62,7 +66,9 @@ FORMS += \
     my_profile.ui \
     house.ui \
     show_aparteman.ui \
-    show_house.ui
+    show_house.ui \
+    search.ui \
+    rent.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

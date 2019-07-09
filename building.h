@@ -17,7 +17,7 @@ public:
     Building();
     virtual ~ Building();
     Building(float _base_price, float _hole_area, QString add, Image* _image_address);
-    virtual void calculate_value();
+//    virtual void calculate_value();
     float Price();
     float Base_price();
     float Hole_area();
@@ -85,6 +85,7 @@ public:
     float Price();
     int Floor_number();
     float Built_area();
+    int House_condition();
     Image* Image();
 };
 class Apartment :public Building {
@@ -98,7 +99,7 @@ public:
     void count_house();
     bool Elevator();
     int Floors();
-    QVector<House*> Houses();
+    QVector<House*>& Houses();
 
 };
 

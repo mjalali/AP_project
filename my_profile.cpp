@@ -8,9 +8,36 @@
 #include<building.h>
 #include"pop.h"
 #include"house.h"
+#include"show_aparteman.h"
 #include<windows.h>
+#include<string>
 
 #include<QFileDialog>
+
+
+QVector<Building *>* search_by_base_price_and_hole_area(QVector<Building *> buildings,float _price,float y){
+    QVector<Building *>* temp=new QVector<Building *>;
+    for(int i=0;i<buildings.size();i++){
+        if(buildings[i]->Base_price()<=_price){
+            if(buildings[i]->Hole_area()>=y){
+                temp->push_back(buildings[i]);
+            }
+        }
+    }
+    return temp;
+}
+
+QVector<Building *>* search_by_street(QVector<Building *> buildings,QString to_search){
+    QVector<Building *> *temp= new QVector<Building*>;
+    for(int i=0;i<buildings.size();i++){
+//        buildings[i]->Address().contains(to_search);
+        int found = buildings[i]->Address().toStdString().find(to_search.toStdString());
+        if (found!=std::string::npos){
+            (*temp).push_back(buildings[i]);
+        }
+    }
+    return temp;
+}
 
 my_profile::my_profile(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +48,8 @@ my_profile::my_profile(QWidget *parent) :
     ui->tabWidget->setTabText(1,"Inset building");
     ui->tabWidget->setTabText(2,"List building");
     ui->tabWidget->setTabText(3,"List File");
+    ui->tabWidget->setTabText(4,"Search");
+
 //    QMovie* ss=new QMovie("C:/Users/Ali/Desktop/tenor.gif");
 //ui->move->setMovie(ss);
 //ui->move->setScaledContents(true);
@@ -136,9 +165,9 @@ void my_profile::on_Insert_clicked()
     if(ui->floors_ap->text()!="")
     {
           Image* ggg=new Image(picture);
-
+            qDebug()<<"floot";
           class::Apartment* re=new class::Apartment(ui->base_price_le->text().toFloat(),ui->hole_area_le->text().toFloat(),ui->address_le->text(),ggg,ui->have_elevator->isTristate(),ui->floors_ap->text().toInt(),list_house);
-
+            qDebug()<<"floot";
           pop* ww=new pop();
           connect(this,SIGNAL(set_pop(QString)),ww,SLOT(get_string(QString)));
           emit set_pop("New Apartment added");
@@ -207,7 +236,109 @@ void my_profile::on_add_house_pb_clicked()
 
 void my_profile::on_pushButton_clicked()
 {
-    if(ui->spinBox->text().toInt()<=list_bulding->size()){
+     qDebug()<<"123456";
+     qDebug()<<list_bulding->size();
+     qDebug()<<ui->spinBox->text().toInt();
+
+    if(ui->spinBox->text().toInt()<=list_bulding->size()&&ui->spinBox->text().toInt()>0){
+        qDebug()<<"10";
+        show_aparteman * ju=new show_aparteman();
+         qDebug()<<"1234567";
+        connect(this,SIGNAL(send_list(Building*)),ju,SLOT(get_list(Building*)));
+         qDebug()<<"12345678";
+        QVector<Building*>::iterator jj=list_bulding->begin();
+        qDebug()<<"12345";
+        int i=1;
+        while(ui->spinBox->value()!=i){
+            qDebug()<<"1234";
+            jj++;
+            i++;
+        }
+        if(jj!=list_bulding->end()){
+            qDebug()<<"gog";
+        emit send_list((*jj));
+
+        ju->exec();
+        }
+
+
+//        emit send_list(list_bulding);
+
+
+
 
     }
+}
+
+void my_profile::on_search_baseprice_holearea_clicked()
+{
+    ui->search_te->clear();
+    QVector<Building*>* s=search_by_base_price_and_hole_area(*list_bulding,ui->price_lower_le->text().toFloat(),ui->hole_area_le->text().toFloat());
+    array[0]=s;
+    qDebug()<<(*s).size();
+    QVector<Building*>::iterator l=(*s).begin();
+    int y=0;
+    while(l!=(*s).end()){
+        y++;
+        QString d=QString::number(y);
+        d+="\t";
+        {
+            Northern_villa* to=dynamic_cast<Northern_villa*>(*l);
+            if(to){
+                d+="Northen villa";
+            }
+            else{
+                Southern_villa* yo=dynamic_cast<Southern_villa*>(*l);
+                if(yo){
+                    d+="Southern villa";
+                }
+                else{
+                    d+="apartment";
+                }
+            }
+        }
+        d+="\t\t";
+        d+=(*l)->Address();
+        d+="\t";
+        d+=QString::number(static_cast<double>((*l)->Price()));
+        ui->search_te->append(d);
+        l++;
+    }
+
+}
+
+void my_profile::on_search_street_clicked()
+{
+    ui->search_te->clear();
+    QVector<Building*>* d=search_by_street(*list_bulding,ui->to_search_street_le->text());
+    array[1]=d;
+    QVector<Building*>::iterator l=(*d).begin();
+    int y=0;
+    while(l!=(*d).end()){
+        y++;
+        QString d=QString::number(y);
+        d+="\t";
+        {
+            Northern_villa* to=dynamic_cast<Northern_villa*>(*l);
+            if(to){
+                d+="Northen villa";
+            }
+            else{
+                Southern_villa* yo=dynamic_cast<Southern_villa*>(*l);
+                if(yo){
+                    d+="Southern villa";
+                }
+                else{
+                    d+="apartment";
+                }
+            }
+        }
+        d+="\t\t";
+        d+=(*l)->Address();
+        d+="\t";
+        d+=QString::number(static_cast<double>((*l)->Price()));
+        ui->search_te->append(d);
+        l++;
+    }
+
 }

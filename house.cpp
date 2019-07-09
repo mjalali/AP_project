@@ -24,8 +24,8 @@ void house::on_add_pb_clicked()
     if(ui->floor_number_le->text()!="" && ui->rooms_le->text()!="" && ui->built_area_le->text()!=""){
         Image * hq=new Image(tmp);
         House* u=new House(ui->floor_number_le->text().toInt(),ui->floor_number_le->text().toInt(),ui->rooms_le->text().toInt(),ui->built_area_le->text().toFloat(),hq,ui->comboBox->currentIndex());
-        qDebug()<<tyu->size();
         tyu->push_back(u);
+        qDebug()<<"add";
         close();
     }
 }

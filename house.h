@@ -19,6 +19,7 @@ public:
     ~house();
    public slots:
     void get_house(QVector<House*>& tmp){
+
         tyu=&tmp;
     }
 

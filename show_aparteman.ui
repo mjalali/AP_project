@@ -77,29 +77,6 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label_35">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>60</y>
-      <width>91</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Building Mode:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="building_mode_3">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>60</y>
-      <width>229</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget_21">
     <property name="geometry">
      <rect>
@@ -144,13 +121,26 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Insert_3">
+      <widget class="QPushButton" name="edit_3">
        <property name="text">
-        <string>Insert</string>
+        <string>edit</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="image_35">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>20</y>
+      <width>121</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
   <widget class="QWidget" name="">

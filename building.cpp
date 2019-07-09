@@ -9,10 +9,7 @@ Building::Building(float _base_price, float _hole_area, QString add, Image* _ima
 
 }
 
-void Building::calculate_value()
-{
 
-}
 float Building::Price() {
     return price;
 }
@@ -80,6 +77,11 @@ float House::Built_area()
     return built_area;
 }
 
+int House::House_condition()
+{
+    return house_ccondition;
+}
+
 Image* House::Image()
 {
     return image;
@@ -107,7 +109,7 @@ void Apartment::count_house()
         houses[i]->set_price(base_price * houses[i]->Built_area());
         houses[i]->set_price(houses[i]->Floor_number()*0.05*houses[i]->Price()+houses[i]->Price());
         if(houses[i]->Rooms()>1){
-            houses[i]->set_price(houses[i]->Price()+ (houses[i]->Rooms()-1)*0.08*houses[i]->Price());
+           houses[i]->set_price(houses[i]->Price()+ (houses[i]->Rooms()-1)*0.08*houses[i]->Price());
         }
         if(Elevator()){
             houses[i]->set_price(houses[i]->Price() + houses[i]->Price()*0.02);
@@ -125,8 +127,9 @@ int Apartment::Floors()
     return floors;
 }
 
-QVector<House*> Apartment::Houses()
+QVector<House*>& Apartment::Houses()
 {
+
     return houses;
 }
 

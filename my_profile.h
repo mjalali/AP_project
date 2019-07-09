@@ -37,6 +37,8 @@ class my_profile : public QDialog
 
     QVector<Building*>* list_bulding;
     QVector<House*> list_house;
+    QVector<Building*>* array[7];
+
 
 public:
     explicit my_profile(QWidget *parent = nullptr);
@@ -94,6 +96,8 @@ public slots:
     void fill();
     void set_pop(QString);
     void send_house(QVector<House*>&);
+    void send_list(Building*);
+
 private slots:
     void on_pushButton_2_clicked();
     void on_pushButton_4_clicked();
@@ -106,6 +110,9 @@ private slots:
     void on_tabWidget_currentChanged(int index);
     void on_add_house_pb_clicked();
     void on_pushButton_clicked();
+
+    void on_search_baseprice_holearea_clicked();
+    void on_search_street_clicked();
 };
 
 #endif // MY_PROFILE_H
